@@ -7,7 +7,7 @@ export class GenifyService{
         let results: AxiosResponse<
           { messages: string } | { [prop: string]: string }
         > = await axios.post(
-            `http://localhost:5000/user/register`,
+            `https://genifybackend.azurewebsites.net/user/register`,
           data,
         );
         return results.data;
@@ -17,7 +17,7 @@ export class GenifyService{
         let results: AxiosResponse<
           { messages: string } | { [prop: string]: string }
         > = await axios.post(
-            `http://localhost:5000/user/login`,
+            `https://genifybackend.azurewebsites.net/user/login`,
           data,
         );
         return results.data;
@@ -27,7 +27,7 @@ export class GenifyService{
         let results: AxiosResponse<
           { messages: string } | { [prop: string]: string }
         > = await axios.post(
-            `http://localhost:5000/prompt_generator/generate`,
+            `https://genifybackend.azurewebsites.net/prompt_generator/generate`,
           data,
         );
         return results.data;

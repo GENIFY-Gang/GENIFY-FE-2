@@ -30,13 +30,13 @@ const PromptGenerator = () => {
       setPromptText("");
       setLoading(true);
 
-      const response = await genifyService.promptPost(values);
+      const response:any = await genifyService.promptPost(values);
 
       setLoading(false);
 
       console.log(response, "res");
    
-      setPromptText(response);
+      setPromptText(response[0]?.generated_text);
 
       notification.info({
         message: `Notification`,
