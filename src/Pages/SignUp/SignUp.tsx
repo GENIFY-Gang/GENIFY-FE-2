@@ -26,6 +26,7 @@ const SignUp = () => {
       notification.info({
         message: `Notification`,
         description: 'Sign Up Successfully Created',
+        placement: 'bottomRight',
       });
       handleReset()
       return response;

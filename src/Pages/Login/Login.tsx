@@ -4,8 +4,6 @@ import { ExclamationCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from "@an
 import { GenifyService } from "../../API";
 import TermsAndConditionModal from "./t&cModal";
 import axios from "axios";
-import { CLIENT_RENEG_LIMIT } from "tls";
-import { log } from "console";
 
 const Login = () => {
   const genifyService = new GenifyService();
@@ -33,6 +31,7 @@ const Login = () => {
       notification.info({
         message: `Notification`,
         description: 'Login Successfully Created',
+        placement:"bottomRight",
       });
       setShowModal(true)
      
@@ -49,7 +48,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-        const response = await login({ username, password });
+        const response = await  genifyService.login({ username, password });
         // If the request is successful, handle the login
         console.log('Login successful:', response);
         setShowModal(true);
@@ -57,45 +56,15 @@ const Login = () => {
         // If there's an error (e.g., invalid credentials), handle it
         console.error('Login failed:', error);
         setError('Invalid username or password.');
-        setShowModal(false);
     }
 };
-
-const login = async (data:any) => {
-    try {
-        let results = await axios.post(`http://localhost:5000/user/login`, data);
-        return results.data;
-    } catch (error) {
-        throw error;
-    }
-};
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
 
   const tAndCModal = useMemo(() => (
     <TermsAndConditionModal
       isVisible={showModal}
-      onClose={() => setShowModal(false)}
     />
   ), [showModal, setShowModal]);
 
-//   const handleLoginClick = () => {
-//     // Simulate login validation
-//     const loginIsValid = /* Your login validation logic */;
-    
-//     if (loginIsValid) {
-//         // If login is successful, set loginSuccess to true and show the modal
-//         setLoginSuccess(true);
-//         setShowModal(true);
-//     } else {
-//         // If login is not successful, show an error message or handle it as needed
-//         console.error("Login failed. Please check your credentials.");
-//         // Optionally, you can reset loginSuccess to false here if needed
-//         setLoginSuccess(false);
-//     }
-// };
 
   return (
     <div className="flex">

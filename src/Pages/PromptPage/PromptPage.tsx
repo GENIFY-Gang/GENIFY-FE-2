@@ -18,29 +18,23 @@ const PromptGenerator = () => {
   const genifyService = new GenifyService();
   const [form] = Form.useForm();
   const [promptText, setPromptText] = useState<any>("");
-  // const [formatPromptText, setFormatPromptText] = useState<any>("");
   const [loading, setLoading] = useState(false);
 
   const handlePrompt = async () => {
     try {
       const values = await form.validateFields();
-      console.log("Form values:", values);
-      // const inputText:any = `[INST]  ${values.input_text}  [/INST]`;
-      // console.log("inputText",inputText);
       setPromptText("");
       setLoading(true);
 
       const response:any = await genifyService.promptPost(values);
 
       setLoading(false);
-
-      console.log(response, "res");
-   
       setPromptText(response[0]?.generated_text);
 
       notification.info({
         message: `Notification`,
         description: "Prompt Sent",
+        placement: 'bottomRight',
         icon: <CheckCircleOutlined style={{ color: "blue" }} />,
       });
     } catch (error) {
@@ -57,23 +51,13 @@ const PromptGenerator = () => {
 
   const handleCopyPrompt = () => {
     if (promptText) {
-      // Create a temporary textarea element
       const tempTextArea = document.createElement("textarea");
       tempTextArea.value = promptText;
-
-      // Append the textarea element to the document body
       document.body.appendChild(tempTextArea);
-
-      // Select the text inside the textarea
       tempTextArea.select();
-
-      // Copy the selected text to the clipboard
       document.execCommand("copy");
-
-      // Remove the temporary textarea
       document.body.removeChild(tempTextArea);
 
-      // Optionally, provide feedback to the user
       notification.success({
         message: "Copied",
         description: "Prompt text copied to clipboard",
@@ -89,16 +73,13 @@ const PromptGenerator = () => {
     }
   };
 
-
-  console.log("promptText", promptText);
-
   return (
     <>
       <div>
         <NavigationBar />
         {/* Other content of your Generator page */}
       </div>
-      <div className="container mx-auto pt-8 px-4 mt-28">
+      <div className="container mx-auto pt-8 px-4 mt-24">
         <h1 className="text-4xl font-bold mb-4">GENIFY</h1>
         <h2 className="text-3xl font-bold mb-4">Prompt Generator</h2>
         <div className="flex items-center justify-center mt-14">
@@ -156,14 +137,6 @@ const PromptGenerator = () => {
               alignItems: "center",
             }}
           >
-            <div
-              style={{
-                textAlign: "center",
-                marginTop: "200px",
-                color: "black",
-                fontStyle: "italic",
-              }}
-            ></div>
             <Button
               type="primary"
               icon={<CopyOutlined />}
@@ -189,16 +162,6 @@ const PromptGenerator = () => {
             </div>
           </div>
         </div>
-        {/* <div className="absolute bottom-24 right-0 mb-4 mr-4">
-          <Button
-            type="primary"
-            icon={<ArrowLeftOutlined />}
-            className="bg-black text-white rounded-full"
-            onClick={handleBackClick}
-          >
-            Back
-          </Button>
-        </div> */}
       </div>
       <Footer />
     </>

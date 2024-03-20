@@ -4,16 +4,14 @@ import React, { FC, useState } from "react";
 
 const TermsAndConditionMOdal: FC<{
   isVisible: boolean;
-  onClose: () => void;
-}> = ({ isVisible, onClose }) => {
-  const [isChecked, setIsChecked] = useState(false);
+}> = ({ isVisible }) => {
+  const [closeModal, setCloseModal] = useState<boolean>(false);
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(e.target.checked);
-  };
+  
 
   const logSystem = ()=>{
     window.location.href = '/prompt-generator';
+    setCloseModal(true);
   }
 
   return (
@@ -21,7 +19,7 @@ const TermsAndConditionMOdal: FC<{
       centered
       width={"700px"}
       open={isVisible} // Changed 'open' to 'visible'
-      onCancel={onClose}
+      onCancel={()=>closeModal}
       footer={null} // No footer for this modal
     >
       <div
@@ -147,7 +145,7 @@ const TermsAndConditionMOdal: FC<{
         </div>
       </div>
       <div style={{ textAlign: "left", margin: "10px 0" }}>
-        <Checkbox checked={isChecked} onChange={() =>handleCheckboxChange}>
+        <Checkbox>
           By signing in, I acknowledge that I have read, understood, and agree
           to be bound by these terms and conditions.
         </Checkbox>
@@ -168,7 +166,7 @@ const TermsAndConditionMOdal: FC<{
           Accept
         </Button>
         <Button
-          onClick={onClose}
+          onClick={()=>setCloseModal(true)}
           style={{
             backgroundColor: "#363538",
             borderColor: "#363538",

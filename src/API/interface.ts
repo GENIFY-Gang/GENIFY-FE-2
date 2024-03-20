@@ -18,3 +18,7 @@ export interface registerResource {
     name: string;
     overallExp:number;
   }
+
+  export interface documentUpdateResource {
+    content: string;
+  }

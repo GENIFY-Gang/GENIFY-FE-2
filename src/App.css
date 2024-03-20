@@ -52,3 +52,7 @@
   border-bottom: 1px solid #ccc; /* Adding only bottom border */
   border-radius: 0; /* Optional: Ensure no rounded corners */
 }
+
+div.blurred-editor div.ql-toolbar {
+  display: none;
+}
