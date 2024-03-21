@@ -5,16 +5,11 @@ import logoImage from "../Home/logo.png";
 
 const NavigationBar: React.FC<any> = () => {
   const [activeTabKey, setActiveTabKey] = useState<string>("1");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    // Logic to handle login
-    setIsLoggedIn(true);
-  };
-
+  
+  const logged = window.localStorage.getItem("isLoggedIn");
   const handleLogout = () => {
-    // Logic to handle logout
-    setIsLoggedIn(false);
+    window.localStorage.removeItem("isLoggedIn");
+    window.localStorage.removeItem("loggedData");
   };
 
   // Get the current location using useLocation hook from react-router-dom
@@ -59,21 +54,15 @@ const NavigationBar: React.FC<any> = () => {
       <div className="flex justify-center ml-96 mt-10 w-full fixed">
         <Tabs
           activeKey={activeTabKey}
-          style={{ width: "100%", maxWidth: "800px" }}
+          style={{ width: "100%", maxWidth: "850px" }}
           tabPosition="top"
           tabBarExtraContent={
             <div className="flex place-items-end ml-40">
               <div className="flex-grow"></div> {/* Spacer */}
               <div className="flex justify-end">
-                {isLoggedIn ? (
-                  <Link to="/" className="text-xl" onClick={handleLogout}>
+                  <Link to="/login" className="text-xl" onClick={handleLogout}>
                     Log Out
                   </Link>
-                ) : (
-                  <Link to="/login" className="text-xl" onClick={handleLogin}>
-                    Log In
-                  </Link>
-                )}
               </div>
             </div>
           }

@@ -6,6 +6,8 @@ import Navigation from "../Navigation/Navigation";
 import prompTHomePhoto from "./promptHome.png";
 
 const Home = () => {
+  const logged = window.localStorage.getItem("isLoggedIn");
+  
   return (
     <>
       <Navigation />
@@ -20,15 +22,27 @@ const Home = () => {
               algorithms to generate creative prompts, sparking your imagination
               and inspiring your writing, storytelling, or creative endeavors.
             </p>
-            <Link to="/prompt-generator">
-              <Button
-                className="bg-black rounded-full mt-5"
-                type="primary"
-                size="large"
-              >
-                Try GENIFY
-              </Button>
-            </Link>
+            {logged ? (
+        <Link to="/prompt-generator">
+          <Button
+            className="bg-black rounded-full mt-5"
+            type="primary"
+            size="large"
+          >
+            Try GENIFY
+          </Button>
+        </Link>
+      ) : (
+        <Link to="/login">
+          <Button
+            className="bg-black rounded-full mt-5"
+            type="primary"
+            size="large"
+          >
+            Try GENIFY
+          </Button>
+        </Link>
+      )}
             {/* Example prompt code */}
             <Card className="mt-8">
               <h3 className="text-lg font-bold mb-4">Example Prompt Code:</h3>
