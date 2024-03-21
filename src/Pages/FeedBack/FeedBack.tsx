@@ -1,7 +1,7 @@
 import { GenifyService } from "../../API";
 import { Button, Form, Input, Radio, notification } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import NavigationBar from "../Navigation/Navigation";
+import NavigationBar from "../Navigation/NavigationBar";
 
 const FeedBack = () => {
   const genifyService = new GenifyService();

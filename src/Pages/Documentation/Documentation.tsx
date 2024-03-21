@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import NavigationBar from "../Navigation/Navigation";
+import NavigationBar from "../Navigation/NavigationBar";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Button, Spin, notification } from "antd";
 import { GenifyService } from "../../API";
 import { ExclamationCircleOutlined, LoadingOutlined } from "@ant-design/icons";
 import Footer from "../Footer/Footer";
+import { useRoleData } from "../UserData/UserData";
 
 const Documentation = () => {
   const [value, setValue] = useState(``);
@@ -14,6 +15,9 @@ const Documentation = () => {
   const [getCallAPI, setGetCallAPI] = useState<boolean>(true);
   const [loading, setLoading] = useState(true);
   const genifyService = new GenifyService();
+  const roleData = useRoleData() as any;
+
+  const isAdmin = roleData?.storedData?.role === "admin";
 
   const toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -84,24 +88,34 @@ const Documentation = () => {
       <div>
         <NavigationBar />
       </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop:"120px", marginRight:"40px"}}>
-  <Button onClick={() => setEdit(false)} type="default" size="large">
-    Edit
-  </Button>
-  <Button
-    className="ml-2"
-    size="large"
-    onClick={() => {
-      setEdit(true);
-      handleSubmit();
-    }}
-    type="default"
-  >
-    Save
-  </Button>
-</div>
 
-      <div className="mt-6">
+      {isAdmin && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "120px",
+            marginRight: "40px",
+          }}
+        >
+          <Button onClick={() => setEdit(false)} type="default" size="large">
+            Edit
+          </Button>
+          <Button
+            className="ml-2"
+            size="large"
+            onClick={() => {
+              setEdit(true);
+              handleSubmit();
+            }}
+            type="default"
+          >
+            Save
+          </Button>
+        </div>
+      )}
+
+      <div className="mt-32">
         <ReactQuill
           className={edit ? "blurred-editor" : "focused-editor"}
           readOnly={edit}
@@ -109,6 +123,7 @@ const Documentation = () => {
           modules={module}
           value={value}
           onChange={setValue}
+          style={{ height: "700px" }}
         />
       </div>
       <div className="overflow-y-auto w-full h-full text-black flex flex-col items-center justify-center">

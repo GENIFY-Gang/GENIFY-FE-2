@@ -1,7 +1,9 @@
 import React from 'react';
 import { CloseCircleOutlined } from '@ant-design/icons';
 import './About.css';
-import NavigationBar from '../Navigation/Navigation';
+import { Button } from 'antd';
+import TeamMemberCard from './TeamCard';
+import NavigationBar from '../Navigation/NavigationBar';
 import charakaImage from './charaka.jpeg';
 import madusaraImage from './madusara.jpeg';
 import kavinduImage from './kavindu.jpeg';
@@ -53,6 +55,7 @@ const About: React.FC = () => {
  
   return (
     <>
+
       <div>
         <NavigationBar />
         <div className="container mx-auto pt-8 px-40 mt-40">
@@ -67,6 +70,8 @@ const About: React.FC = () => {
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
               </div>
+
+
             </div>
           ))}
         </div>

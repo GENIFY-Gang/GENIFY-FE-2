@@ -14,9 +14,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  console.log("username",username);
-  console.log("password",password);
-  
 
   const handleSubmit = async () => {
     
@@ -27,13 +24,15 @@ const Login = () => {
       setPassword(values.password)
       const response = await genifyService.login(values);
       console.log(response, "res");
-
-      notification.info({
-        message: `Notification`,
+      const dataString = JSON.stringify(response);
+      notification.success({
+        message: `Successfull`,
         description: 'Login Successfully Created',
         placement:"bottomRight",
       });
-      setShowModal(true)
+      setShowModal(true);
+      window.localStorage.setItem("isLoggedIn","true");
+      window.localStorage.setItem("loggedData",dataString)
      
 
     } catch (error) {
@@ -45,19 +44,6 @@ const Login = () => {
       });
     }
   };
-
-  const handleLogin = async () => {
-    try {
-        const response = await  genifyService.login({ username, password });
-        // If the request is successful, handle the login
-        console.log('Login successful:', response);
-        setShowModal(true);
-    } catch (error) {
-        // If there's an error (e.g., invalid credentials), handle it
-        console.error('Login failed:', error);
-        setError('Invalid username or password.');
-    }
-};
 
   const tAndCModal = useMemo(() => (
     <TermsAndConditionModal
@@ -75,7 +61,7 @@ const Login = () => {
         <div className="w-80">
         <h1 className="text-center mb-8 text-2xl font-bold">WELCOME TO GENIFY</h1>
           <h2 className="text-center mb-8 text-2xl font-poppins">Login</h2>
-          <Form form={form} onFinish={handleSubmit}>
+          <Form form={form}>
             <div className="mb-4">
               <Form.Item
                 name="username"
@@ -107,7 +93,7 @@ const Login = () => {
               </Form.Item>
             </div>
             <div className="text-center">
-              <Button type="default" htmlType="submit"  className="rounded-full" onClick={handleLogin}>
+              <Button type="default" htmlType="submit"  className="rounded-full" onClick={handleSubmit}>
                 Login
               </Button>
             </div>

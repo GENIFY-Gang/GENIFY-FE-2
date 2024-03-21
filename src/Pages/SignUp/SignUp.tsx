@@ -23,9 +23,9 @@ const SignUp = () => {
 
       const response = await genifyService.register(updatedValues);
 
-      notification.info({
-        message: `Notification`,
-        description: 'Sign Up Successfully Created',
+      notification.success({
+        message: `Successfull`,
+        description: 'SignUp SuccessFull',
         placement: 'bottomRight',
       });
       handleReset()
