@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { GenifyService } from "../../API";
 import { Link } from "react-router-dom";
-import NavigationBar from "../Navigation/Navigation";
+import NavigationBar from "../Navigation/NavigationBar";
 import Footer from "../Footer/Footer";
 import { CLIENT_RENEG_LIMIT } from "tls";
 

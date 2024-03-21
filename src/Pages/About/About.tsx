@@ -3,7 +3,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
 import TeamMemberCard from './TeamCard';
-import NavigationBar from '../Navigation/Navigation';
+import NavigationBar from '../Navigation/NavigationBar';
 import charakaImage from './charaka.jpeg';
 import madusaraImage from './madusara.jpeg';
 import kavinduImage from './kavindu.jpeg';
@@ -72,7 +72,7 @@ const About: React.FC = () => {
     <>
       
         <div>
-          <NavigationBar />
+        <NavigationBar/>
           <div className="mt-44">
             <h2 className="text-3xl font-bold mb-4 mr-20 text-gray-600">Meet the Team</h2>
           <p className="text-lg mb-8">

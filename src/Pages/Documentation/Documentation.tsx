@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NavigationBar from "../Navigation/Navigation";
+import NavigationBar from "../Navigation/NavigationBar";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Button, Spin, notification } from "antd";
