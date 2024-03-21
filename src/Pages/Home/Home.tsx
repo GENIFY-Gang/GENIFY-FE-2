@@ -3,7 +3,8 @@ import { Button, Card } from "antd";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
-import prompTHomePhoto from "./promptHome.png";
+import prompTHomePhoto from "./art-image-3.jpg";
+import './Home.css';
 
 const Home = () => {
   const logged = window.localStorage.getItem("isLoggedIn");
@@ -11,16 +12,14 @@ const Home = () => {
   return (
     <>
       <Navigation />
-      <div className="flex items-center h-auto w-auto mt-8 bg-white" >
-        <div className="max-w-4xl mx-auto flex justify-between">
+      <div className="flex items-center h-auto w-auto mt-40 bg-white px-40" >
+        <div className="w-auto mx-auto flex justify-between">
           {/* Left side: Description */}
-          <div className="w-1/2 mb-64">
-            <div className="w-[420px] pr-28">
-            <h1 className="text-4xl font-bold mt-44">Welcome to GENIFY</h1>
-            <p className="text-lg mt-10">
-              GENIFY is your AI Prompt Generating System. It uses advanced
-              algorithms to generate creative prompts, sparking your imagination
-              and inspiring your writing, storytelling, or creative endeavors.
+          <div className="w-1/2 flex justify-center items-center">
+            <div className="w-auto pr-40 text-left">
+            <h1 className="text-5xl font-semibold">Introducing GENIFY</h1>
+            <p className="text-md mt-10">
+            Welcome to GENIFY, your go-to platform for effortless prompt generation. Simplify instructing Large Language Models with our user-friendly interface. Input vague prompts, and witness the magic as GENIFY transforms them into well-structured instructions. Tailor your models effortlessly, saving time and ensuring precise interactions. Whether you're a developer, content creator, or researcher, GENIFY empowers you to harness the full potential of Large Language Models with ease. Unlock the art of effective instruction at GENIFY.
             </p>
             {logged ? (
         <Link to="/prompt-generator">
@@ -44,23 +43,23 @@ const Home = () => {
         </Link>
       )}
             {/* Example prompt code */}
-            <Card className="mt-8">
+            {/* <Card className="mt-8">
               <h3 className="text-lg font-bold mb-4">Example Prompt Code:</h3>
               <div className="bg-gray-200 p-4 rounded-md">
                 <pre className="text-sm overflow-x-auto">
                   const generatePrompt // Your prompt generation logic here
                 </pre>
               </div>
-            </Card>
+            </Card> */}
             </div>
             
           </div>
           {/* Right side: Image */}
-          <div className="w-full ">
+          <div className="w-1/2 flex justify-center items-center">
             <img
               src={prompTHomePhoto}
               alt="GENIFY"
-              className="w-full h-auto rounded-full mt-44"
+              className="w-4/5 h-auto"
             />
           </div>
           {/* Container showcasing modern technology */}
