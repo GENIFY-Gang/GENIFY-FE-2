@@ -1,0 +1,11 @@
+/* Footer.css */
+
+.footer {
+    margin-top: 5rem; 
+  }
+  
+  .custom-footer {
+    background-color: #EDFAE4;
+    color: black; /* Optionally change text color */
+  }
+  
