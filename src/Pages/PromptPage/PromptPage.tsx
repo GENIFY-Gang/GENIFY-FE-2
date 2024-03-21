@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import NavigationBar from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
 import { CLIENT_RENEG_LIMIT } from "tls";
+import './PromptPage.css';
 
 const PromptGenerator = () => {
   const genifyService = new GenifyService();
@@ -79,16 +80,15 @@ const PromptGenerator = () => {
         <NavigationBar />
         {/* Other content of your Generator page */}
       </div>
-      <div className="container mx-auto pt-8 px-4 mt-24">
-        <h1 className="text-4xl font-bold mb-4">GENIFY</h1>
-        <h2 className="text-3xl font-bold mb-4">Prompt Generator</h2>
+      <div className="container mx-auto pt-8 px-4 mt-40">
+        <h1 className="text-4xl font-semibold mb-4">GENIFY Prompt Generator</h1>
         <div className="flex items-center justify-center mt-14">
           <div
-            className="bg-gray-300 border border-black p-2 relative rounded-l-3xl"
+            className="border border-black p-2 relative rounded-l-3xl text-area-color no-right-border"
             style={{
               color: "white",
-              width: "610px",
-              height: "500px",
+              width: "38.125rem",
+              height: "31.25rem",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -101,13 +101,13 @@ const PromptGenerator = () => {
                   placeholder="To generate a well-structured prompt, press “Generate”"
                   id="input_text"
                   name="input_text"
-                  className="font-mono"
+                  className="font-mono text-area-2"
                   style={{
-                    width: "605px",
-                    height: "495px",
-                    backgroundColor: "#D9D9D9",
-                    borderColor: "#D9D9D9",
+                    width: "37.125rem",
+                    height: "30.25rem",
                     marginTop: "20px",
+                    backgroundColor: "#f0faf3",
+                    borderColor: "#f0faf3",
                     borderTopLeftRadius: "25px",
                     borderBottomLeftRadius: "20px",
                   }}
@@ -119,18 +119,19 @@ const PromptGenerator = () => {
                 type="primary"
                 icon={<RocketOutlined />}
                 onClick={handlePrompt}
-                className="bg-red-400 text-white rounded-full"
+                size="large"
+                className="text-black rounded-full generate-button"
               >
                 Generate
               </Button>
             </div>
           </div>
           <div
-            className="bg-gray-300 border border-black p-2 relative rounded-r-3xl"
+            className="border border-black p-2 relative rounded-r-3xl text-area-color"
             style={{
               color: "white",
-              width: "610px",
-              height: "500px",
+              width: "38.125rem",
+              height: "31.25rem",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -141,7 +142,7 @@ const PromptGenerator = () => {
               type="primary"
               icon={<CopyOutlined />}
               onClick={handleCopyPrompt}
-              className="bg-blue-400 text-white rounded-full ml-2 absolute right-5 top-2"
+              className="text-white rounded-full ml-2 absolute right-5 top-2 copy-button"
             >
               Copy
             </Button>
