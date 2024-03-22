@@ -4,14 +4,15 @@ import React, { FC, useState } from "react";
 
 const TermsAndConditionMOdal: FC<{
   isVisible: boolean;
-}> = ({ isVisible }) => {
-  const [closeModal, setCloseModal] = useState<boolean>(false);
+  onClose: () => void;
+}> = ({ isVisible,onClose }) => {
+  const [isChecked, setisChecked] = useState<boolean>(true);
 
   
 
   const logSystem = ()=>{
     window.location.href = '/prompt-generator';
-    setCloseModal(true);
+    onClose();
   }
 
   return (
@@ -19,7 +20,7 @@ const TermsAndConditionMOdal: FC<{
       centered
       width={"700px"}
       open={isVisible} // Changed 'open' to 'visible'
-      onCancel={()=>closeModal}
+      onCancel={()=>onClose()}
       footer={null} // No footer for this modal
     >
       <div
@@ -31,7 +32,6 @@ const TermsAndConditionMOdal: FC<{
         }}
       >
         {" "}
-        {/* Added div for scrolling */}
         <h2>Terms and Conditions</h2>
         <div
           style={{
@@ -145,7 +145,7 @@ const TermsAndConditionMOdal: FC<{
         </div>
       </div>
       <div style={{ textAlign: "left", margin: "10px 0" }}>
-        <Checkbox>
+        <Checkbox onClick={()=>setisChecked(false)}>
           By signing in, I acknowledge that I have read, understood, and agree
           to be bound by these terms and conditions.
         </Checkbox>
@@ -155,18 +155,18 @@ const TermsAndConditionMOdal: FC<{
       >
         <Button
           onClick={logSystem}
-          // disabled={!isChecked}
+          disabled={isChecked}
           style={{
             marginRight: "10px",
-            backgroundColor: "#E18574",
-            borderColor: "#E18574",
+            backgroundColor: isChecked? "#454443" : "#24605A" ,
+            borderColor:isChecked? "#454443" : "#24605A" ,
             color: "white",
           }}
         >
           Accept
         </Button>
         <Button
-          onClick={()=>setCloseModal(true)}
+          onClick={()=>onClose()}
           style={{
             backgroundColor: "#363538",
             borderColor: "#363538",

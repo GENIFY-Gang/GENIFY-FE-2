@@ -88,17 +88,34 @@ const Documentation = () => {
       <div>
         <NavigationBar />
       </div>
-
+      {isAdmin ? (
+        <p style={{ fontSize: "60px", marginTop: "100px" }}>
+          Edit Documentation
+        </p>
+      ) : (
+        <p style={{ fontSize: "60px", marginTop: "100px" }}>Documentation</p>
+      )}
       {isAdmin && (
         <div
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            marginTop: "120px",
+            marginTop: "40px",
             marginRight: "40px",
           }}
         >
-          <Button onClick={() => setEdit(false)} type="default" size="large">
+          <Button
+            onClick={() => setEdit(false)}
+            type="default"
+            size="large"
+            style={{
+              marginRight: "10px",
+              backgroundColor: "#24605A",
+              borderColor: "#24605A",
+              color: "white",
+              borderRadius:"40px"
+            }}
+          >
             Edit
           </Button>
           <Button
@@ -108,14 +125,19 @@ const Documentation = () => {
               setEdit(true);
               handleSubmit();
             }}
+            style={{
+              backgroundColor: "#363538",
+              borderColor: "#363538",
+              color: "white",
+              borderRadius:"40px"
+            }}
             type="default"
           >
             Save
           </Button>
         </div>
       )}
-
-      <div className="mt-32">
+      <div>
         <ReactQuill
           className={edit ? "blurred-editor" : "focused-editor"}
           readOnly={edit}
@@ -123,18 +145,10 @@ const Documentation = () => {
           modules={module}
           value={value}
           onChange={setValue}
-          style={{ height: "700px" }}
+          style={{ height: "600px" }}
         />
       </div>
-      <div className="overflow-y-auto w-full h-full text-black flex flex-col items-center justify-center">
-        <Spin
-          spinning={loading}
-          indicator={
-            <LoadingOutlined style={{ fontSize: 50, color: "#1890ff" }} spin />
-          }
-        />
-      </div>
-      <Footer />
+      <Footer marginTop={true}/>
     </>
   );
 };

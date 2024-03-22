@@ -3,16 +3,11 @@ import { Input, Button, Form, notification } from "antd";
 import { ExclamationCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { GenifyService } from "../../API";
 import TermsAndConditionModal from "./t&cModal";
-import axios from "axios";
 
 const Login = () => {
   const genifyService = new GenifyService();
   const [showModal, setShowModal] = useState<boolean>(false);
   const [form] = Form.useForm();
-  const [loginSuccess, setLoginSuccess] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
 
   const handleSubmit = async () => {
@@ -20,14 +15,12 @@ const Login = () => {
     try {
       const values = await form.validateFields();
       console.log("Form values:", values);
-      setUsername(values.username)
-      setPassword(values.password)
       const response = await genifyService.login(values);
       console.log(response, "res");
       const dataString = JSON.stringify(response);
       notification.success({
         message: `Successfull`,
-        description: 'Login Successfully Created',
+        description: 'Login Successful',
         placement:"bottomRight",
       });
       setShowModal(true);
@@ -35,10 +28,10 @@ const Login = () => {
       window.localStorage.setItem("loggedData",dataString)
      
 
-    } catch (error) {
+    } catch (err) {
       notification.error({
         message: 'Error',
-        description: 'An error occurred while processing your request. Please try again later.',
+        description: 'Invalid username or password',
         placement: 'bottomRight',
         icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
       });
@@ -48,6 +41,7 @@ const Login = () => {
   const tAndCModal = useMemo(() => (
     <TermsAndConditionModal
       isVisible={showModal}
+      onClose={()=>setShowModal(false)}
     />
   ), [showModal, setShowModal]);
 

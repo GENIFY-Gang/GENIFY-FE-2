@@ -12,7 +12,13 @@ const RoleDataContext = createContext({});
 export default RoleDataContext;
 
 // RoleDataProvider component
-export const RoleDataProvider = ({ children,userData  }: { children: React.ReactNode,userData: UserData | null }) => {
+export const RoleDataProvider = ({
+  children,
+  userData,
+}: {
+  children: React.ReactNode;
+  userData: UserData | null;
+}) => {
   const [storedData, setStoredData] = useState<UserData | null>(null);
 
   useEffect(() => {
@@ -24,9 +30,9 @@ export const RoleDataProvider = ({ children,userData  }: { children: React.React
     } else {
     }
   }, []);
-  
+
   return (
-    <RoleDataContext.Provider value={{storedData}}>
+    <RoleDataContext.Provider value={{ storedData }}>
       {children}
     </RoleDataContext.Provider>
   );
