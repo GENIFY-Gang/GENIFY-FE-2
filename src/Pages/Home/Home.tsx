@@ -1,16 +1,19 @@
 import React from "react";
-import { Button, Card } from "antd";
+import { Button, Card, Layout } from "antd";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
 import prompTHomePhoto from "./art-image-3.jpg";
 import './Home.css';
 import NavigationBar from "../Navigation/NavigationBar";
+import { Content } from "antd/es/layout/layout";
 
 const Home = () => {
   return (
     <>
-      <NavigationBar/>
+     <Layout style={{background:"white" }}>
+      <NavigationBar /> {/* NavigationBar as header */}
+      <Content style={{ marginTop: '64px',background:"white" }}>
       <div className="home-container">
         <div className="home-container-left">
           <h1>Introducing  <span className="violet">Genify</span></h1>
@@ -22,7 +25,9 @@ const Home = () => {
           <img src={prompTHomePhoto} alt="home-image" />
         </div>
       </div>
-      <Footer/>
+      </Content>
+      <Footer  />
+    </Layout>
     </>
   );
 };

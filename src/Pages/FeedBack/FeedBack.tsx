@@ -1,7 +1,9 @@
 import { GenifyService } from "../../API";
-import { Button, Form, Input, Radio, notification } from "antd";
+import { Button, Form, Input, Layout, Radio, notification } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import NavigationBar from "../Navigation/NavigationBar";
+import { Content } from "antd/es/layout/layout";
+import Footer from "../Footer/Footer";
 
 const FeedBack = () => {
   const genifyService = new GenifyService();
@@ -44,8 +46,9 @@ const FeedBack = () => {
   };
 
   return (
-    <div>
-      <NavigationBar />
+    <Layout style={{background:"white"}}>
+      <NavigationBar /> {/* NavigationBar as header */}
+      <Content style={{ marginTop: '64px',background:"white" }}>
 
       <div className="container mx-auto pt-8 px-4 mt-28">
         <Form form={form}>
@@ -85,7 +88,9 @@ const FeedBack = () => {
           submit
         </Button>
       </div>
-    </div>
+      </Content>
+      <Footer bottomFooter={true}/>
+    </Layout>
   );
 };
 

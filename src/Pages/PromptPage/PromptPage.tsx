@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Input, Spin, notification } from "antd";
+import { Button, Form, Input, Spin, notification, Layout } from "antd";
 import {
   ArrowLeftOutlined,
   CheckCircleOutlined,
@@ -12,8 +12,9 @@ import { GenifyService } from "../../API";
 import { Link } from "react-router-dom";
 import NavigationBar from "../Navigation/NavigationBar";
 import Footer from "../Footer/Footer";
-import { CLIENT_RENEG_LIMIT } from "tls";
 import './PromptPage.css';
+
+const { Content } = Layout;
 
 const PromptGenerator = () => {
   const genifyService = new GenifyService();
@@ -75,12 +76,9 @@ const PromptGenerator = () => {
   };
 
   return (
-    <>
-      <div>
-        <NavigationBar />
-        {/* Other content of your Generator page */}
-      </div>
-      <div className="container mx-auto pt-8 px-4 mt-40">
+    <Layout style={{background:"white"}}>
+      <NavigationBar />
+      <Content className="container mx-auto pt-8 px-4 mt-40" style={{background:"white"}}>
         <h1 className="text-4xl font-semibold mb-4">GENIFY Prompt Generator</h1>
         <div className="flex items-center justify-center mt-14">
           <div
@@ -163,9 +161,9 @@ const PromptGenerator = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Content>
       <Footer />
-    </>
+    </Layout>
   );
 };
 

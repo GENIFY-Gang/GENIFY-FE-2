@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import NavigationBar from "../Navigation/NavigationBar";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Button, Spin, notification } from "antd";
+import { Button, Spin, notification, Layout } from "antd";
 import { GenifyService } from "../../API";
 import { ExclamationCircleOutlined, LoadingOutlined } from "@ant-design/icons";
 import Footer from "../Footer/Footer";
 import { useRoleData } from "../UserData/UserData";
+
+const { Content } = Layout;
 
 const Documentation = () => {
   const [value, setValue] = useState(``);
@@ -39,8 +41,6 @@ const Documentation = () => {
 
     ["clean"], // remove formatting button
   ];
-
-  console.log(value, "value");
 
   const module = {
     toolbar: toolbarOptions,
@@ -83,61 +83,60 @@ const Documentation = () => {
       });
     }
   };
+
   return (
-    <>
-      <div>
-        <NavigationBar />
-      </div>
-      {isAdmin ? (
-        <p style={{ fontSize: "60px", marginTop: "100px" }}>
-          Edit Documentation
-        </p>
-      ) : (
-        <p style={{ fontSize: "60px", marginTop: "100px" }}>Documentation</p>
-      )}
-      {isAdmin && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            marginTop: "40px",
-            marginRight: "40px",
-          }}
-        >
-          <Button
-            onClick={() => setEdit(false)}
-            type="default"
-            size="large"
+    <Layout style={{background:"white"}}>
+      <NavigationBar />
+      <Content style={{ marginTop: '64px',background:"white" }}>
+        {isAdmin ? (
+          <p style={{ fontSize: "60px", marginTop: "50px" }}>
+            Edit Documentation
+          </p>
+        ) : (
+          <p style={{ fontSize: "60px", marginTop: "50px" }}>Documentation</p>
+        )}
+        {isAdmin && (
+          <div
             style={{
-              marginRight: "10px",
-              backgroundColor: "#24605A",
-              borderColor: "#24605A",
-              color: "white",
-              borderRadius:"40px"
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "40px",
+              marginRight: "40px",
             }}
           >
-            Edit
-          </Button>
-          <Button
-            className="ml-2"
-            size="large"
-            onClick={() => {
-              setEdit(true);
-              handleSubmit();
-            }}
-            style={{
-              backgroundColor: "#363538",
-              borderColor: "#363538",
-              color: "white",
-              borderRadius:"40px"
-            }}
-            type="default"
-          >
-            Save
-          </Button>
-        </div>
-      )}
-      <div>
+            <Button
+              onClick={() => setEdit(false)}
+              type="default"
+              size="large"
+              style={{
+                marginRight: "10px",
+                backgroundColor: "#24605A",
+                borderColor: "#24605A",
+                color: "white",
+                borderRadius: "40px",
+              }}
+            >
+              Edit
+            </Button>
+            <Button
+              className="ml-2"
+              size="large"
+              onClick={() => {
+                setEdit(true);
+                handleSubmit();
+              }}
+              style={{
+                backgroundColor: "#363538",
+                borderColor: "#363538",
+                color: "white",
+                borderRadius: "40px",
+              }}
+              type="default"
+            >
+              Save
+            </Button>
+          </div>
+        )}
         <ReactQuill
           className={edit ? "blurred-editor" : "focused-editor"}
           readOnly={edit}
@@ -147,9 +146,9 @@ const Documentation = () => {
           onChange={setValue}
           style={{ height: "600px" }}
         />
-      </div>
-      <Footer marginTop={true}/>
-    </>
+      </Content>
+      <Footer marginTop={true} />
+    </Layout>
   );
 };
 
