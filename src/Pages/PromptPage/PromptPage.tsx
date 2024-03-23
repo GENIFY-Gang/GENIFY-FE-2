@@ -90,7 +90,7 @@ const PromptGenerator = () => {
         </h1>
         <div className="flex items-center justify-center mt-14">
           <div
-            className="border border-black p-2 relative rounded-l-3xl text-area-color no-right-border"
+            className="border border-black p-2 relative rounded-l-3xl text-area-color no-right-border left-container-prompt"
             style={{
               color: "white",
               width: "38.125rem",
@@ -101,7 +101,7 @@ const PromptGenerator = () => {
               alignItems: "center",
             }}
           >
-            <Form form={form}>
+            <Form form={form} style={{width: "100%"}}>
               <Form.Item name="input_text">
                 <Input.TextArea
                   placeholder="To generate a well-structured prompt, press “Generate”"
@@ -109,7 +109,7 @@ const PromptGenerator = () => {
                   name="input_text"
                   className="font-mono text-area-2"
                   style={{
-                    width: "37.125rem",
+                    width: "100%",
                     height: "30.25rem",
                     marginTop: "20px",
                     backgroundColor: "#f0faf3",
