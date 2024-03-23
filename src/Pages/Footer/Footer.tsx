@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './Footer.css';
+import '../../AMain/Main.css';
 
 const Footer: FC<{marginTop?:boolean , bottomFooter?:boolean}>=({marginTop,bottomFooter}) => {
   const footerStyle = bottomFooter ? {marginTop:"19rem"} : { marginTop: marginTop ? "" : "6rem" };

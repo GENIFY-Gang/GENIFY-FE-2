@@ -1,6 +1,6 @@
 import React from 'react';
 import { CloseCircleOutlined } from '@ant-design/icons';
-import './About.css';
+import "../../AMain/Main.css"
 import { Button } from 'antd';
 import TeamMemberCard from './TeamCard';
 import NavigationBar from '../Navigation/NavigationBar';
@@ -10,6 +10,7 @@ import kavinduImage from './kavindu.jpeg';
 import dilanaImage from './dilana.jpg';
 import nethmiImage from './nethmi.png';
 import Footer from '../Footer/Footer';
+
 
 interface TeamMember {
   name: string;

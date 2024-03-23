@@ -12,7 +12,7 @@ import { GenifyService } from "../../API";
 import { Link } from "react-router-dom";
 import NavigationBar from "../Navigation/NavigationBar";
 import Footer from "../Footer/Footer";
-import './PromptPage.css';
+import '../../AMain/Main.css';
 
 const { Content } = Layout;
 

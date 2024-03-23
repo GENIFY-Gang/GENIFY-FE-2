@@ -167,10 +167,11 @@ const TermsAndConditionMOdal: FC<{
         </Button>
         <Button
           onClick={()=>onClose()}
+          className="bg-red-400 text-white"
           style={{
-            backgroundColor: "#363538",
-            borderColor: "#363538",
-            color: "white",
+            // backgroundColor: "#ff0000",
+            // borderColor: "#363538",
+            // color: "white",
           }}
         >
           Decline
