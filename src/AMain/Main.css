@@ -8,8 +8,8 @@
   }
   
   .team-member {
-    width: calc(20% - 20px); /* Adjust width as needed */
-    margin: 10px; /* Space between cards */
+    width: calc(20% - 20px); 
+    margin: 10px; 
     border: 1px solid #000000;
     border-radius: 10px;
     overflow: hidden;
@@ -18,7 +18,7 @@
   
   .member-photo {
     width: 100%;
-    height: 20rem; /* Reduced height */
+    height: 20rem; 
     object-fit: cover;
     filter: saturate(90%);
   }
@@ -49,6 +49,42 @@
       color: #9173e6;
   }
 
+  @media (max-width: 576px) {
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-member{
+      width: 80%;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (max-width: 768px) {
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .team-member{
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 1080px) {
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .team-member{
+      width: 80%;
+    }
+  }
+
 
   /* Footer.css */
 
@@ -59,7 +95,7 @@
 
 .custom-footer {
   background-color: #EDFAE4;
-  color: black; /* Optionally change text color */
+  color: black; 
 }
 
 
@@ -74,6 +110,7 @@
 .home-container-left{
   width: 50%;
   padding: 8rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .home-container-right{
@@ -155,6 +192,7 @@
   font-size: 1rem;
   z-index: 1000; 
   background-color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar-left{
@@ -174,8 +212,12 @@
 
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus { /* Apply hover color also for active (clicked) state */
+.nav-link:focus { 
   color:#39cc76;
+}
+
+.nav-link.active {
+  color: #39cc76; 
 }
 
 
@@ -187,9 +229,9 @@
 }
 
 .text-area-2:focus {
-  outline: none; /* Remove the default focus outline */
-  border-color: #f0faf3; /* Set border color to the same as background color */
-  box-shadow: none; /* Remove any box shadow */
+  outline: none; 
+  border-color: #f0faf3; 
+  box-shadow: none;
 }
 
 .no-right-border{
@@ -210,6 +252,56 @@
 
 .copy-button:hover{
   background-color: #0f2826 !important;
+}
+
+
+.flex{
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.left-container-prompt{
+  width: 50%;
+}
+
+/* Small devices (phones, 576px and up) */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+
+  .prompt-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .prompt-container .prompt-box {
+    flex: 1;
+    margin: 0 10px;
+    max-width: 50%;
+  }
+
+  .prompt-container .prompt-box textarea {
+    width: 100%;
+    height: 300px;
+  }
 }
 
 
