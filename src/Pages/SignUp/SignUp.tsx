@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input, Button, Form, notification } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { GenifyService } from "../../API";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const genifyService = new GenifyService();
@@ -99,14 +100,14 @@ const SignUp = () => {
                 name="confirmPassword"
                 dependencies={["password"]}
                 rules={[
-                  { required: true, message: "Please confirm your password!" },
+                  { required: true, message: "Please confirm your password" },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
                       if (!value || getFieldValue("password") === value) {
                         return Promise.resolve();
                       }
                       return Promise.reject(
-                        new Error("Password Not Match Please Try Again!")
+                        new Error("Password Not Match Please Try Again")
                       );
                     },
                   }),
@@ -129,9 +130,9 @@ const SignUp = () => {
           </Form>
           <div className="text-center mt-4">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-500">
+            <Link to="/login" className="text-blue-500">
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </div>

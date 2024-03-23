@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Assuming you're using React Router for navigation
 import '../../AMain/Main.css';
+import { Link, useLocation } from "react-router-dom"; // Importing useLocation hook
 
 const Navbar = () => {
   const logged = window.localStorage.getItem("isLoggedIn");
+  const location = useLocation(); // Getting the current location
   const handleLogout = () => {
     window.localStorage.removeItem("isLoggedIn");
     window.localStorage.removeItem("loggedData");
@@ -16,32 +16,31 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-right">
-        <Link to="/" className="nav-link">
+        <Link to="/" className={`nav-link ${location.pathname === '/' && 'active'}`}>
           Home
         </Link>
         {logged && (
-        <Link to="/prompt-generator" className="nav-link">
-          Generator
-        </Link>  )}
+          <Link to="/prompt-generator" className={`nav-link ${location.pathname === '/prompt-generator' && 'active'}`}>
+            Generator
+          </Link>
+        )}
+          <Link to="/documentation" className={`nav-link ${location.pathname === '/documentation' && 'active'}`}>
+            Documentation
+          </Link>
+          <Link to="/about-us" className={`nav-link ${location.pathname === '/about-us' && 'active'}`}>
+            About Us
+          </Link>
         {logged && (
-        <Link to="/documentation" className="nav-link">
-          Documentation
-        </Link>  )}
-        {logged && (
-        <Link to="/about-us" className="nav-link">
-          About Us
-        </Link>  )}
-        {logged && (
-        <Link to="/feed-back" className="nav-link">
-          Feedback
-        </Link>  )}
-        {logged && (
+          <Link to="/feed-back" className={`nav-link ${location.pathname === '/feed-back' && 'active'}`}>
+            Feedback
+          </Link>
+        )}
+        {logged ? (
           <Link to="/login" className="nav-link" onClick={handleLogout}>
             Log Out
           </Link>
-        )}
-        {!logged && (
-          <Link to="/login" className="nav-link">
+        ) : (
+          <Link to="/login" className={`nav-link ${location.pathname === '/login' && 'active'}`}>
             Log In
           </Link>
         )}

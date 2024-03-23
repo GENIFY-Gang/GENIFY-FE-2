@@ -55,11 +55,11 @@ const Login = () => {
         <div className="w-80">
         <h1 className="text-center mb-8 text-2xl font-bold">WELCOME TO GENIFY</h1>
           <h2 className="text-center mb-8 text-2xl font-poppins">Login</h2>
-          <Form form={form}>
+          <Form form={form} onFinish={handleSubmit}>
             <div className="mb-4">
               <Form.Item
                 name="username"
-                rules={[{ required: true, message: "Please enter your username!" }]}
+                rules={[{ required: true, message: "Please enter your username" }]}
               >
                 <Input
                   type="text"
@@ -73,7 +73,7 @@ const Login = () => {
             <div className="mb-4">
               <Form.Item
                 name="password"
-                rules={[{ required: true, message: "Please enter your password!" }]}
+                rules={[{ required: true, message: "Please enter your password" }]}
               >
                 <Input.Password
                   placeholder="Password"
@@ -87,7 +87,7 @@ const Login = () => {
               </Form.Item>
             </div>
             <div className="text-center">
-              <Button type="default" htmlType="submit"  className="rounded-full" onClick={handleSubmit}>
+              <Button type="default" htmlType="submit"  className="rounded-full">
                 Login
               </Button>
             </div>

@@ -76,10 +76,18 @@ const PromptGenerator = () => {
   };
 
   return (
-    <Layout style={{background:"white"}}>
+    <Layout style={{ background: "white" }}>
       <NavigationBar />
-      <Content className="container mx-auto pt-8 px-4 mt-40" style={{background:"white"}}>
-        <h1 className="text-4xl font-semibold mb-4">GENIFY Prompt Generator</h1>
+      <Content
+        className="container mx-auto pt-8 px-4 mt-40"
+        style={{ background: "white" }}
+      >
+        <h1
+          className="text-4xl font-semibold mb-4"
+          style={{ fontFamily: "Poppins" }}
+        >
+          System Prompt Generator
+        </h1>
         <div className="flex items-center justify-center mt-14">
           <div
             className="border border-black p-2 relative rounded-l-3xl text-area-color no-right-border"
@@ -155,7 +163,7 @@ const PromptGenerator = () => {
                   />
                 }
               />
-              <pre className="overflow-y-auto text-left w-full flex-grow">
+              <pre className="overflow-y-auto text-left w-full flex-grow mt-9">
                 {promptText}
               </pre>
             </div>

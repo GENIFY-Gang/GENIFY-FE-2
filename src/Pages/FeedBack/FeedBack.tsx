@@ -4,6 +4,7 @@ import { ExclamationCircleOutlined } from "@ant-design/icons";
 import NavigationBar from "../Navigation/NavigationBar";
 import { Content } from "antd/es/layout/layout";
 import Footer from "../Footer/Footer";
+import FeedbackFormItems from "./schema";
 
 const FeedBack = () => {
   const genifyService = new GenifyService();
@@ -51,42 +52,12 @@ const FeedBack = () => {
       <Content style={{ marginTop: '64px',background:"white" }}>
 
       <div className="container mx-auto pt-8 px-4 mt-28">
-        <Form form={form}>
-          <Form.Item
-            name="input_text"
-            className="form-item-box" // Apply the box styling directly to the Form.Item component
-            label="Name" // Move label inside Form.Item for consistency
-          >
-            <Input.TextArea
-              placeholder="What specific features do you find most valuable or beneficial?"
-              id="name"
-              name="name"
-              className="custom-input"
-            />
-          </Form.Item>
-          <Form.Item
-            name="overallExp"
-            className="form-item-box"
-            label="How would you rate your overall experience with Genify?"
-            rules={[
-              {
-                required: true,
-                message: 'Please select your overall experience with Genify',
-              },
-            ]}
-          >
-            <Radio.Group>
-              <Radio value={1}>1</Radio>
-              <Radio value={2}>2</Radio>
-              <Radio value={3}>3</Radio>
-              <Radio value={4}>4</Radio>
-              <Radio value={5}>5</Radio>
-            </Radio.Group>
-          </Form.Item>
-        </Form>
-        <Button className="input" onClick={handleSubmit}>
-          submit
-        </Button>
+      <Form form={form}>
+            <FeedbackFormItems />
+          </Form>
+          <Button className="input" onClick={handleSubmit}>
+            Submit
+          </Button>
       </div>
       </Content>
       <Footer bottomFooter={true}/>

@@ -85,15 +85,15 @@ const Documentation = () => {
   };
 
   return (
-    <Layout style={{background:"white"}}>
+    <Layout style={{ background: "white" }}>
       <NavigationBar />
-      <Content style={{ marginTop: '64px',background:"white" }}>
+      <Content style={{ marginTop: "64px", background: "white" }}>
         {isAdmin ? (
-          <p style={{ fontSize: "60px", marginTop: "50px" }}>
+          <p style={{ fontSize: "60px", marginTop: "50px",fontFamily:'Poppins'}}>
             Edit Documentation
           </p>
         ) : (
-          <p style={{ fontSize: "60px", marginTop: "50px" }}>Documentation</p>
+          <p style={{ fontSize: "60px", marginTop: "50px",fontFamily:'Poppins' }}>Documentation</p>
         )}
         {isAdmin && (
           <div
@@ -114,6 +114,7 @@ const Documentation = () => {
                 borderColor: "#24605A",
                 color: "white",
                 borderRadius: "40px",
+                fontFamily:'Poppins'
               }}
             >
               Edit
@@ -130,6 +131,7 @@ const Documentation = () => {
                 borderColor: "#363538",
                 color: "white",
                 borderRadius: "40px",
+                fontFamily:'Poppins'
               }}
               type="default"
             >
@@ -137,15 +139,23 @@ const Documentation = () => {
             </Button>
           </div>
         )}
-        <ReactQuill
-          className={edit ? "blurred-editor" : "focused-editor"}
-          readOnly={edit}
-          theme="snow"
-          modules={module}
-          value={value}
-          onChange={setValue}
-          style={{ height: "600px" }}
-        />
+        <div>
+          <Spin
+            size="large"
+            spinning={loading}
+            style={{ marginTop: "200px" }}
+            indicator={<LoadingOutlined style={{ fontSize: 140 }} spin />}
+          />
+          <ReactQuill
+            className={edit ? "blurred-editor" : "focused-editor"}
+            readOnly={edit}
+            theme="snow"
+            modules={module}
+            value={value}
+            onChange={setValue}
+            style={{ height: "600px",marginTop:"10px"}}
+          />
+        </div>
       </Content>
       <Footer marginTop={true} />
     </Layout>
