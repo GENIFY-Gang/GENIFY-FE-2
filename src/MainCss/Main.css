@@ -1,0 +1,308 @@
+/* About Css */
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem
+  }
+  
+  .team-member {
+    width: calc(20% - 20px); 
+    margin: 10px; 
+    border: 1px solid #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f0faf3;
+  }
+  
+  .member-photo {
+    width: 100%;
+    height: 20rem; 
+    object-fit: cover;
+    filter: saturate(90%);
+  }
+  
+  .member-details {
+    padding: 10px;
+    font-size: 0.8rem;
+    background-color: #f0faf3;
+  }
+  
+  .member-name {
+    font-weight: bold;
+  }
+  
+  .member-role {
+    font-style: italic;
+  }
+  
+  .title {
+      text-align: left;
+    }
+  
+  .paragraph{
+      text-align: justify;
+  }
+  
+  .word-genify{
+      color: #9173e6;
+  }
+
+  @media (max-width: 576px) {
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-member{
+      width: 80%;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (max-width: 768px) {
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .team-member{
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 1080px) {
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .team-member{
+      width: 80%;
+    }
+  }
+
+
+  /* Footer.css */
+
+.footer {
+  position: relative;
+  bottom: 0; 
+}
+
+.custom-footer {
+  background-color: #EDFAE4;
+  color: black; 
+}
+
+
+/* Home.css */
+
+
+.home-container{
+  display: flex;
+  margin-top: 3rem;
+}
+
+.home-container-left{
+  width: 50%;
+  padding: 8rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-container-right{
+  width: 50%;
+}
+
+.home-container-right img{
+  width: 80%;
+  padding: 3.5rem;
+}
+
+.home-container h1{
+  font-size: 2.5rem;
+  text-align: left;
+  font-weight: 500;
+  margin-block: 1.5rem;
+  
+}
+
+.home-container p{
+  text-align: left;
+}
+
+
+.violet{
+  color: #8460eb;
+}
+
+@media screen and (min-width:1600px){
+  .home-container{
+      height: 90vh;
+      padding-top: 12rem;
+  }
+}
+
+@media screen and (max-width:1080px) {
+  .home-container{
+      flex-direction: column;
+      margin-top: 5rem;
+  }
+
+  .home-container-left{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      padding: 0 2rem;
+  }
+
+  .home-container-right{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-block: 1rem;
+
+  }
+
+  
+  .home-container-right img{
+      width: 40%;
+      padding: 0;
+  }
+
+}
+
+/* Navigation.css */
+
+.navbar{
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  z-index: 1000; 
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-left{
+  width: 50%;
+  text-align: left;
+  margin-left: 4rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.navbar-right{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-right: 2rem;  
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus { 
+  color:#39cc76;
+}
+
+.nav-link.active {
+  color: #39cc76; 
+}
+
+
+
+/* PromptGenerator.css */
+
+.text-area-color{
+  background-color: #f0faf3  ;
+}
+
+.text-area-2:focus {
+  outline: none; 
+  border-color: #f0faf3; 
+  box-shadow: none;
+}
+
+.no-right-border{
+  border-right: none;
+}
+
+.generate-button{
+  background-color: #B9A0FF  ;
+}
+
+.generate-button:hover{
+  background-color: #8c75ca !important ;
+}
+
+.copy-button{
+  background-color: #24605A  ;
+}
+
+.copy-button:hover{
+  background-color: #0f2826 !important;
+}
+
+
+.flex{
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.left-container-prompt{
+  width: 50%;
+}
+
+/* Small devices (phones, 576px and up) */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+
+  .prompt-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .prompt-container .prompt-box {
+    flex: 1;
+    margin: 0 10px;
+    max-width: 50%;
+  }
+
+  .prompt-container .prompt-box textarea {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+
+
