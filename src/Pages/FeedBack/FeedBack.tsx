@@ -47,20 +47,38 @@ const FeedBack = () => {
   };
 
   return (
-    <Layout style={{background:"white"}}>
+    <Layout style={{ background: "white" }}>
       <NavigationBar /> {/* NavigationBar as header */}
-      <Content style={{ marginTop: '64px',background:"white" }}>
-
-      <div className="container mx-auto pt-8 px-4 mt-28">
-      <Form form={form}>
+      <Content style={{ marginTop: "64px", background: "white" }}>
+        <p
+          style={{ fontSize: "60px", marginTop: "50px", fontFamily: "Poppins" }}
+        >
+          User Feedback Form
+        </p>
+        <div className="container mx-auto px-4 mt-6">
+          <Form form={form}>
             <FeedbackFormItems />
           </Form>
-          <Button className="input" onClick={handleSubmit}>
-            Submit
-          </Button>
-      </div>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ marginLeft: "auto",marginRight:"10px",marginTop:"50px" }}>
+              <Button
+                className="inputBtn"
+                size="large"
+                onClick={handleSubmit}
+                style={{
+                  backgroundColor: "#24605A",
+                  borderColor: "#24605A",
+                  color: "white",
+                  width:"100px"
+                }}
+              >
+                Submit
+              </Button>
+            </div>
+          </div>
+        </div>
       </Content>
-      <Footer bottomFooter={true}/>
+      <Footer bottomFooter={true} />
     </Layout>
   );
 };
