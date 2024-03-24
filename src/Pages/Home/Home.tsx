@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, Layout } from "antd";
 import { Link } from "react-router-dom";
 import  "../../AMain/Main.css";
-import prompTHomePhoto from "./art-image-3.jpg";
+import prompTHomePhoto from "../../Photos/art-image-3.jpg";
 import '../../AMain/Main.css';
 import NavigationBar from "../Navigation/NavigationBar";
 import { Content } from "antd/es/layout/layout";

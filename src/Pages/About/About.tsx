@@ -2,11 +2,11 @@ import React from 'react';
 import "../../AMain/Main.css"
 import { Layout } from 'antd';
 import NavigationBar from '../Navigation/NavigationBar';
-import charakaImage from './charaka.jpeg';
-import madusaraImage from './madusara.jpeg';
-import kavinduImage from './kavindu.jpeg';
-import dilanaImage from './dilana.jpg';
-import nethmiImage from './nethmi.png';
+import charakaImage from '../../Photos/charaka.jpeg';
+import madusaraImage from '../../Photos/madusara.jpeg';
+import kavinduImage from '../../Photos/kavindu.jpeg';
+import dilanaImage from '../../Photos/dilana.jpg';
+import nethmiImage from '../../Photos/nethmi.png';
 import Footer from '../Footer/Footer';
 import { Content } from 'antd/es/layout/layout';
 
