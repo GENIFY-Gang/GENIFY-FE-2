@@ -219,15 +219,15 @@
 
 .navbar-right {
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center; 
 }
 
 .nav-link {
-  margin-right: 5rem; /* Add margin between each nav link */
+  margin-right: 5rem; 
 }
 
 .nav-link:last-child {
-  margin-right: 1rem; /* Reduce margin for the last nav link */
+  margin-right: 1rem; 
 }
 
 .nav-link:hover,
@@ -243,15 +243,15 @@
 /* Media Query for smaller screen sizes */
 @media screen and (max-width: 768px) {
   .navbar-left {
-    margin-left: 1rem; /* Adjust margin for smaller screens */
+    margin-left: 1rem; 
   }
 
   .navbar-right {
-    margin-right: 1rem; /* Adjust margin for smaller screens */
+    margin-right: 1rem;
   }
 
   .nav-link {
-    margin-right: 1rem; /* Adjust margin for smaller screens */
+    margin-right: 1rem; 
   }
 }
 

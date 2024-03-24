@@ -5,23 +5,25 @@ import React, { FC, useState } from "react";
 const TermsAndConditionMOdal: FC<{
   isVisible: boolean;
   onClose: () => void;
-}> = ({ isVisible,onClose }) => {
+}> = ({ isVisible, onClose }) => {
   const [isChecked, setisChecked] = useState<boolean>(true);
 
-  
-
-  const logSystem = ()=>{
-    window.location.href = '/prompt-generator';
+  const logSystem = () => {
+    window.location.href = "/prompt-generator";
     onClose();
-  }
+  };
 
   return (
     <Modal
       centered
       width={"700px"}
       open={isVisible} // Changed 'open' to 'visible'
-      onCancel={()=>onClose()}
+      onCancel={() => onClose()}
       footer={null} // No footer for this modal
+      style={{
+        borderRadius: "20px", 
+    }}
+    
     >
       <div
         style={{
@@ -29,20 +31,22 @@ const TermsAndConditionMOdal: FC<{
           overflowY: "auto",
           textAlign: "center",
           backgroundColor: "white",
+          
         }}
       >
         {" "}
-        <h2>Terms and Conditions</h2>
+        <h2 className="text-2xl font-bold">Terms and Conditions</h2>
         <div
           style={{
             maxHeight: "300px",
             overflowY: "auto",
             backgroundColor: "white",
+            marginTop : "10px"
           }}
         >
           {" "}
           {/* Added div for scrolling */}
-          <ol style={{ textAlign: "left", paddingLeft: "20px" }}>
+          <ol style={{ textAlign: "left", paddingLeft: "40px" }}>
             <li style={{ marginTop: "10px" }}>
               <strong>Acceptance of Terms:</strong>
               <ul
@@ -144,12 +148,12 @@ const TermsAndConditionMOdal: FC<{
           </ol>
         </div>
       </div>
-      <div style={{ textAlign: "left", margin: "10px 0" }}>
-        <Checkbox onClick={()=>setisChecked(false)}>
+      <div style={{ textAlign: "left", marginTop: "50px" }}>
+        <Checkbox onClick={() => setisChecked(false)}>
           By signing in, I acknowledge that I have read, understood, and agree
           to be bound by these terms and conditions.
         </Checkbox>
-      </div>  
+      </div>
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
@@ -158,21 +162,23 @@ const TermsAndConditionMOdal: FC<{
           disabled={isChecked}
           style={{
             marginRight: "10px",
-            backgroundColor: isChecked? "#454443" : "#24605A" ,
-            borderColor:isChecked? "#454443" : "#24605A" ,
+            backgroundColor: isChecked ? "#454443" : "#24605A",
+            borderColor: isChecked ? "#454443" : "#24605A",
             color: "white",
           }}
         >
           Accept
         </Button>
         <Button
-          onClick={()=>onClose()}
+          onClick={() => onClose()}
           className="bg-red-400 text-white"
-          style={{
-            // backgroundColor: "#ff0000",
-            // borderColor: "#363538",
-            // color: "white",
-          }}
+          style={
+            {
+              // backgroundColor: "#ff0000",
+              // borderColor: "#363538",
+              // color: "white",
+            }
+          }
         >
           Decline
         </Button>

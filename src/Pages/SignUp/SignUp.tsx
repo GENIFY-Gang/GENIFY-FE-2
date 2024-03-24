@@ -24,10 +24,11 @@ const SignUp = () => {
       const response = await genifyService.register(updatedValues);
 
       notification.success({
-        message: `Successfull`,
-        description: "SignUp SuccessFull",
+        message: `Successfully signed up for Genify`,
+        description: "You have successfully created an account.",
         placement: "bottomRight",
-      });
+    });
+    
       handleReset();
       return response;
     } catch (error) {
