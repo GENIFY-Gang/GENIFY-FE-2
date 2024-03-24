@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Input, Button, Form, notification } from "antd";
+import { Input, Button, Form, notification, Layout } from "antd";
 import { ExclamationCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { GenifyService } from "../../API";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Content } from "antd/es/layout/layout";
+import NavigationBar from "../Navigation/NavigationBar";
 
 const SignUp = () => {
   const genifyService = new GenifyService();
@@ -54,15 +56,22 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex">
+    <>
+
+    <Layout style={{ background: "white" }}>
+    <NavigationBar/>
+    <Content style={{ background: "white" }}>
+    
+    <div className="flex mt-4">
       <div className="w-1/2 h-screen flex items-center sign-up-phrase">
         <div className="grid grid-rows-3">
-          <h1 className="text-left text-4xl text-white font-semibold ml-6 self-start">Unlock your creativity with <span className="word-genify">Genify</span></h1>
-          <h2 className="text-left text-3xl ml-6 self-end mt-2 sign-up-phrase-mini">where system prompts meet</h2>
-          <h2 className="text-left text-3xl ml-6 self-end mt-1 sign-up-phrase-mini">limitless possibilities</h2>
+          <h1 className="text-left text-4xl text-white font-semibold ml-6 self-start">Join the <span className="word-genify">Genify</span> community</h1>
+          <h2 className="text-left text-3xl ml-6 self-end mt-2 sign-up-phrase-mini">Shape the future of AI-generated content</h2>
+          <h2 className="text-left text-3xl ml-6 self-end mt-1 sign-up-phrase-mini">with structured system prompts</h2>
         </div>
       </div>
-      <div className="w-1/2 h-screen flex items-center justify-center">
+
+      <div className="w-1/2 h-screen flex items-center justify-center poppins-font">
         <div className="w-80">
           <h1 className="text-center mb-5 text-1xl">
             WELCOME TO
@@ -159,6 +168,9 @@ const SignUp = () => {
         </div>
       </div>
     </div>
+    </Content>
+    </Layout>
+    </>
   );
 };
 

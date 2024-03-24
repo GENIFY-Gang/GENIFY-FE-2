@@ -86,19 +86,11 @@ const PromptGenerator = () => {
   };
 
   return (
-    <Layout style={{ background: "white" }}>
+    <Layout style={{background:"white"}}>
       <NavigationBar />
-      <Content
-        className="container mx-auto pt-8 px-4 mt-40"
-        style={{ background: "white" }}
-      >
-        <h1
-          className="text-4xl font-semibold mb-4"
-          style={{ fontFamily: "Poppins" }}
-        >
-          System Prompt Generator
-        </h1>
-        <div className="flex items-center justify-center mt-14">
+      <Content className="container mx-auto pt-8 px-4 mt-40" style={{background:"white"}}>
+        <h1 className="text-4xl font-semibold mb-4 poppins-font prompt-title">System Prompt Generator</h1>
+        <div className="flex items-center justify-center mt-14 input-container">
           <div
             className="border border-black p-2 relative rounded-l-3xl text-area-color no-right-border left-container-prompt"
             style={{
@@ -143,7 +135,7 @@ const PromptGenerator = () => {
             </div>
           </div>
           <div
-            className="border border-black p-2 relative rounded-r-3xl text-area-color"
+            className="border border-black p-2 relative rounded-r-3xl text-area-color right-prompt-container"
             style={{
               color: "white",
               width: "38.125rem",
@@ -162,7 +154,7 @@ const PromptGenerator = () => {
             >
               Copy
             </Button>
-            <div className="overflow-y-auto w-full h-full text-black flex flex-col items-center justify-center">
+            <div className="overflow-y-auto w-full h-full text-black flex flex-col items-center justify-center mt-10">
               <Spin
                 spinning={loading}
                 tip="GENIFY Is Typing..."
@@ -173,7 +165,7 @@ const PromptGenerator = () => {
                   />
                 }
               />
-              <pre className="overflow-y-auto text-left w-full flex-grow mt-9">
+              <pre className="overflow-y-auto text-left w-full flex-grow">
                 {promptText}
               </pre>
             </div>

@@ -9,6 +9,7 @@ const FeedbackFormItems = () => {
         name="interFace_rate"
         className="form-item-box"
         label="How would you rate the user interface of the Genify web tool?"
+        style={{backgroundColor:"#EDFAE4",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -31,6 +32,7 @@ const FeedbackFormItems = () => {
         name="recommend"
         className="form-item-box"
         label="How likely are you to recommend Genify to others?"
+        style={{backgroundColor:"#eae3fc",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -57,6 +59,7 @@ const FeedbackFormItems = () => {
         name="difficulty"
         className="form-item-box"
         label="Have you encountered any difficulties while using Genify?"
+        style={{backgroundColor:"#EDFAE4",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -77,12 +80,13 @@ const FeedbackFormItems = () => {
         name="domainExpert"
         className="form-item-box"
         label="For Domain Experts (ML)"
+        style={{backgroundColor:"#eae3fc",border:"1px solid black",marginBlock:"2rem"}}
       >
         <Input.TextArea
           id="name"
           name="name"
           className="custom-input"
-          style={{ height: "100px" }}
+          style={{ height: "100px",backgroundColor:"#f4f0ff"}}
         />
       </Form.Item>
 
@@ -90,6 +94,7 @@ const FeedbackFormItems = () => {
         name="accuracy"
         className="form-item-box"
         label="How satisfied are you with the accuracy of prompt generation in Genify?"
+        style={{backgroundColor:"#EDFAE4",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -116,6 +121,7 @@ const FeedbackFormItems = () => {
         name="fine_tuning"
         className="form-item-box"
         label="How intuitive do you find the process of fine-tuning language models with Genify?"
+        style={{backgroundColor:"#eae3fc",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -142,6 +148,7 @@ const FeedbackFormItems = () => {
         name="comparing"
         className="form-item-box"
         label="In your opinion, how does Genify compare to similar tools in the market?"
+        style={{backgroundColor:"#EDFAE4",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -164,6 +171,7 @@ const FeedbackFormItems = () => {
         name="performance"
         className="form-item-box"
         label="How reliable do you find the performance of Genify under heavy usage?"
+        style={{backgroundColor:"#eae3fc",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -190,6 +198,7 @@ const FeedbackFormItems = () => {
         name="expectations"
         className="form-item-box"
         label="To what extent does Genify meet your expectations for customizing language models?"
+        style={{backgroundColor:"#EDFAE4",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,
@@ -216,6 +225,7 @@ const FeedbackFormItems = () => {
         name="overallExp"
         className="form-item-box"
         label="How essential do you think Genify could be for industry applications?"
+        style={{backgroundColor:"#eae3fc",border:"1px solid black",marginBlock:"2rem"}}
         rules={[
           {
             required: true,

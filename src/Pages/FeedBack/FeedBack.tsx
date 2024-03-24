@@ -5,6 +5,7 @@ import NavigationBar from "../Navigation/NavigationBar";
 import { Content } from "antd/es/layout/layout";
 import Footer from "../Footer/Footer";
 import FeedbackFormItems from "./schema";
+import axios from "axios";
 
 const FeedBack = () => {
   const genifyService = new GenifyService();
@@ -36,13 +37,21 @@ const FeedBack = () => {
       });
       form.resetFields();
     } catch (error) {
-      notification.error({
-        message: "Error",
-        description:
-          "An error occurred while processing your request. Please try again later.",
-        placement: "bottomRight",
-        icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
-      });
+      if (axios.isAxiosError(error) && error.response) {
+        notification.error({
+          message: "Error",
+          description: error.response.data.error || "An error occurred while processing your request. Please try again later.",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+      } else {
+        notification.error({
+          message: "Error",
+          description: "An error occurred while processing your request. Please try again later.",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+    }
     }
   };
 

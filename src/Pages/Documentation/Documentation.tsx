@@ -8,6 +8,7 @@ import { ExclamationCircleOutlined, LoadingOutlined } from "@ant-design/icons";
 import Footer from "../Footer/Footer";
 import { useRoleData } from "../UserData/UserData";
 import axios from "axios";
+import '../../AMain/Main.css';
 
 const { Content } = Layout;
 
@@ -99,20 +100,23 @@ const Documentation = () => {
       <NavigationBar />
       <Content style={{ marginTop: "64px", background: "white" }}>
         {isAdmin ? (
-          <p style={{ fontSize: "60px", marginTop: "50px",fontFamily:'Poppins'}}>
+          <p style={{ fontFamily:'Poppins'}} className="documentation-title">
             Edit Documentation
           </p>
         ) : (
-          <p style={{ fontSize: "60px", marginTop: "50px",fontFamily:'Poppins' }}>Documentation</p>
+          <p style={{ marginTop: "50px",fontFamily:'Poppins' }} className="documentation-title">Documentation</p>
         )}
         {isAdmin && (
           <div
             style={{
               display: "flex",
               justifyContent: "flex-end",
-              marginTop: "40px",
+              marginBlock: "2rem",
               marginRight: "40px",
+              paddingRight: "4rem"
+
             }}
+            
           >
             <Button
               onClick={() => setEdit(false)}
@@ -149,7 +153,7 @@ const Documentation = () => {
             </Button>
           </div>
         )}
-        <div>
+        <div className="documentation-editor">
           <Spin
             size="large"
             spinning={loading}
