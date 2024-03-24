@@ -66,10 +66,9 @@ const About: React.FC = () => {
             Alongside our academic pursuits, we are actively engaged in the
             industry, gaining practical experience and insights into
             cutting-edge technologies. Leveraging our expertise in machine
-            learning, we collaborate on projects like '
-            <span className="word-genify">Genify</span>,' a web tool
+            learning, we collaborate on projects like 'Genify,' a web tool
             meticulously crafted to harness the power of artificial
-            intelligence. <span className="word-genify">Genify</span> utilizes
+            intelligence. Genify utilizes
             advanced machine learning algorithms to transform vague prompts into
             meticulously structured system prompts. With a focus on innovative
             machine learning approaches, we aim to revolutionize how prompts are

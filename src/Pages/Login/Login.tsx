@@ -48,13 +48,17 @@ const Login = () => {
 
   return (
     <div className="flex">
-      <div className="w-1/2 h-screen bg-black text-white flex items-center justify-center text-5xl">
-        GENIFY
+      <div className="w-1/2 h-screen flex items-center sign-up-phrase">
+        <div className="grid grid-rows-3">
+          <h1 className="text-left text-4xl text-white font-semibold ml-6 self-start">Join the <span className="word-genify">Genify</span> community</h1>
+          <h2 className="text-left text-3xl ml-6 self-end mt-2 sign-up-phrase-mini">Shape the future of AI-generated content</h2>
+          <h2 className="text-left text-3xl ml-6 self-end mt-1 sign-up-phrase-mini">with structured system prompts</h2>
+        </div>
       </div>
       <div className="w-1/2 h-screen flex items-center justify-center">
         <div className="w-80">
-        <h1 className="text-center mb-8 text-2xl font-bold">WELCOME TO GENIFY</h1>
-          <h2 className="text-center mb-8 text-2xl font-poppins">Login</h2>
+        <h1 className="text-center mb-5 text-1xl">WELCOME TO</h1>
+          <h2 className="text-center mb-8 text-4xl font-semibold">Genify</h2>
           <Form form={form} onFinish={handleSubmit}>
             <div className="mb-4">
               <Form.Item
@@ -87,13 +91,13 @@ const Login = () => {
               </Form.Item>
             </div>
             <div className="text-center">
-              <Button type="default" htmlType="submit"  className="rounded-full">
+              <Button type="default" htmlType="submit"  className="mt-2 rounded-full" size="large">
                 Login
               </Button>
             </div>
           </Form>
-          <div className="text-center mt-4">
-            Don't have an account? <a href="/signup" className="text-blue-500">Sign Up</a>
+          <div className="text-center mt-6">
+            Don't have an account? <a href="/signup" className="link-text">Sign Up</a>
           </div>
         </div>
       </div>
