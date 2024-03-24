@@ -35,7 +35,7 @@ const Home = () => {
                 {logged ? (
                   <Link to="/prompt-generator">
                     <Button
-                      className="bg-black rounded-full mt-5"
+                      className="rounded-full mt-5 try-genify"
                       type="primary"
                       size="large"
                       style={{fontFamily:'Poppins'}}
@@ -46,7 +46,7 @@ const Home = () => {
                 ) : (
                   <Link to="/login">
                     <Button
-                      className="bg-black rounded-full mt-5"
+                      className="rounded-full mt-5 try-genify"
                       type="primary"
                       size="large"
                       style={{fontFamily:'Poppins'}}
