@@ -38,7 +38,7 @@ const Navbar = () => {
         </button>
       )}
 
-      <div className="navbar-right">
+      <div className={`navbar-right ${logged ? 'logged-in' : 'logged-out'}`}>
         <Link to="/" className={`nav-link ${location.pathname === '/' && 'active'}`}>
           Home
         </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
         )}
       </div>
     </nav>
-    <div className={`navbar-mobile ${isOpen ? "open" : ""}`}>
+    <div className={`navbar-mobile ${isOpen ? "open" : ""} ${logged ? 'logged-in' : 'logged-out'}`}>
           <Link to="/" className={`nav-link ${location.pathname === '/' && 'active'}`} onClick={() => setIsOpen(false)}>
             Home
           </Link>
@@ -79,16 +79,16 @@ const Navbar = () => {
               Generator
             </Link>
           )}
-          {logged && (
+          
             <Link to="/documentation" className={`nav-link ${location.pathname === '/documentation' && 'active'}`} onClick={() => setIsOpen(false)}>
               Documentation
             </Link>
-          )}
-          {logged && (
+          
+          
             <Link to="/about-us" className={`nav-link ${location.pathname === '/about-us' && 'active'}`} onClick={() => setIsOpen(false)}>
               About Us
             </Link>
-          )}
+        
           {logged && (
             <Link to="/feed-back" className={`nav-link ${location.pathname === '/feed-back' && 'active'}`} onClick={() => setIsOpen(false)}>
               Feedback

@@ -90,11 +90,11 @@ const Documentation = () => {
       <NavigationBar />
       <Content style={{ marginTop: "64px", background: "white" }}>
         {isAdmin ? (
-          <p style={{ marginTop: "50px",fontFamily:'Poppins'}} className="documentation-title">
+          <p style={{ fontFamily:'Poppins'}} className="documentation-title">
             Edit Documentation
           </p>
         ) : (
-          <p style={{ fontSize: "60px", marginTop: "50px",fontFamily:'Poppins' }} className="documentation-title">Documentation</p>
+          <p style={{ marginTop: "50px",fontFamily:'Poppins' }} className="documentation-title">Documentation</p>
         )}
         {isAdmin && (
           <div

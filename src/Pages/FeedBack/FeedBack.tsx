@@ -51,7 +51,7 @@ const FeedBack = () => {
       <NavigationBar /> {/* NavigationBar as header */}
       <Content style={{ marginTop: "64px", background: "white" }}>
         <p
-          style={{ fontSize: "60px", marginTop: "50px", fontFamily: "Poppins" }}
+          style={{marginTop: "50px", fontFamily: "Poppins" }} className="feedback-title"
         >
           User Feedback Form
         </p>
@@ -60,9 +60,9 @@ const FeedBack = () => {
             <FeedbackFormItems />
           </Form>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <div style={{ marginLeft: "auto",marginRight:"10px",marginTop:"50px" }}>
+            <div style={{ marginLeft: "auto",marginRight:"10px",marginTop:"20px" }}>
               <Button
-                className="inputBtn"
+                className="rounded-full inputBtn"
                 size="large"
                 onClick={handleSubmit}
                 style={{

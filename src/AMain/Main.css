@@ -163,7 +163,7 @@
 @media screen and (min-width:1600px){
   .home-container{
       height: 90vh;
-      padding-top: 12rem;
+      padding-top: 6rem;
   }
 }
 
@@ -189,7 +189,6 @@
       flex-direction: column;
       align-items: center;
       margin-block: 1rem;
-
   }
 
   
@@ -227,9 +226,17 @@
 .navbar-right{
   display: flex;
   justify-content: space-between;
-  width: 50%;
   margin-right: 2rem;  
 }
+
+.navbar-right.logged-in {
+  width: 50%;
+}
+
+.navbar-right.logged-out {
+  width: 30%;
+}
+
 
 .nav-link:hover,
 .nav-link:active,
@@ -298,6 +305,14 @@
     z-index: 100;
   }
 
+  .navbar-mobile.open.logged-out{
+    justify-content: center;
+  }
+
+  .navbar-mobile.open.logged-out .nav-link{
+    margin-block: 2rem;
+  }
+
   
   .overlay {
     position: fixed;
@@ -332,7 +347,7 @@
 /* PromptGenerator.css */
 
 .text-area-color{
-  background-color: #f0faf3  ;
+  background-color: #f0faf3;
 }
 
 .text-area-2:focus {
@@ -346,15 +361,15 @@
 }
 
 .generate-button{
-  background-color: #B9A0FF  ;
+  background-color: #B9A0FF;
 }
 
 .generate-button:hover{
-  background-color: #8c75ca !important ;
+  background-color: #8c75ca !important;
 }
 
 .copy-button{
-  background-color: #24605A  ;
+  background-color: #24605A;
 }
 
 .copy-button:hover{
@@ -430,12 +445,10 @@
   .right-prompt-container{
     border-radius: 2rem;
     margin-top: 1rem;
-  
   }
   .left-container-prompt{
     border-right:1px solid black;
     border-radius: 2rem;
-    
   }
 
   .prompt-title{
@@ -477,7 +490,7 @@
 /* documentation.css */
 
 .documentation-title{
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 600;
 }
 
@@ -489,10 +502,25 @@
 @media (max-width: 768px){
   .documentation-title{
     font-weight: 400;
+    margin-top: 2rem;
   }
 
   .documentation-editor{
     padding: 0rem 1rem;
     border: 0px;
+  }
+}
+
+/* feedback.css */
+
+.feedback-title{
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px){
+  .feedback-title{
+    font-size: 2.3rem;
+    font-weight: 400;
   }
 }
