@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import NavigationBar from "../Navigation/NavigationBar";
 import Footer from "../Footer/Footer";
 import '../../AMain/Main.css';
+import axios from "axios";
 
 const { Content } = Layout;
 
@@ -41,13 +42,22 @@ const PromptGenerator = () => {
       });
     } catch (error) {
       setLoading(false);
-
-      notification.error({
-        message: "Error",
-        description: "This is not a valid prompt",
-        placement: "bottomRight",
-        icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
-      });
+      if (axios.isAxiosError(error) && error.response) {
+        notification.error({
+          message: "Error",
+          description: error.response.data.error || "This is not a valid prompt",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+      } else {
+        // Display a generic error notification
+        notification.error({
+          message: "Error",
+          description: "This is not a valid prompt",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+    }
     }
   };
 

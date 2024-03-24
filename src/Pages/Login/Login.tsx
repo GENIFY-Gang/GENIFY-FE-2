@@ -3,6 +3,7 @@ import { Input, Button, Form, notification } from "antd";
 import { ExclamationCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { GenifyService } from "../../API";
 import TermsAndConditionModal from "./t&cModal";
+import axios from "axios";
 
 const Login = () => {
   const genifyService = new GenifyService();
@@ -29,12 +30,22 @@ const Login = () => {
      
 
     } catch (err) {
-      notification.error({
-        message: 'Error',
-        description: 'Invalid username or password',
-        placement: 'bottomRight',
-        icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
-      });
+      if (axios.isAxiosError(err) && err.response) {
+        notification.error({
+          message: "Error",
+          description: err.response.data.error || "Invalid username or password",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+      } else {
+        // Display a generic error notification
+        notification.error({
+          message: "Error",
+          description: "Invalid username or password",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+    }
     }
   };
 

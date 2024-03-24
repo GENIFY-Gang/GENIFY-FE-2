@@ -7,6 +7,7 @@ import { GenifyService } from "../../API";
 import { ExclamationCircleOutlined, LoadingOutlined } from "@ant-design/icons";
 import Footer from "../Footer/Footer";
 import { useRoleData } from "../UserData/UserData";
+import axios from "axios";
 
 const { Content } = Layout;
 
@@ -73,14 +74,23 @@ const Documentation = () => {
         placement: "bottomRight",
       });
       setGetCallAPI(true);
-    } catch (error) {
-      notification.error({
-        message: "Error",
-        description:
-          "An error occurred while processing your request. Please try again later.",
-        placement: "bottomRight",
-        icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
-      });
+    } catch (error) {       
+      if (axios.isAxiosError(error) && error.response) {
+        notification.error({
+          message: "Error",
+          description: error.response.data.error || "An error occurred while processing your request. Please try again later.",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+      } else {
+        // Display a generic error notification
+        notification.error({
+          message: "Error",
+          description: "An error occurred while processing your request. Please try again later.",
+          placement: "bottomRight",
+          icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+        });
+    }
     }
   };
 

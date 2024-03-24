@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Input, Button, Form, notification } from "antd";
-import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { ExclamationCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { GenifyService } from "../../API";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const genifyService = new GenifyService();
@@ -28,11 +29,27 @@ const SignUp = () => {
         description: "You have successfully created an account.",
         placement: "bottomRight",
     });
-    
-      handleReset();
-      return response;
-    } catch (error) {
-      console.error("Validation failed:", error);
+      window.location.href = "/login";
+        handleReset();
+        return response;
+      } catch (error) { 
+        console.log(error,"error");
+        
+        if (axios.isAxiosError(error) && error.response) {
+          notification.error({
+            message: "Error",
+            description: error.response.data.error || "An error occurred while signing up.",
+            placement: "bottomRight",
+            icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+          });
+        } else {
+          notification.error({
+            message: "Error",
+            description: "An error occurred while signing up.",
+            placement: "bottomRight",
+            icon: <ExclamationCircleOutlined style={{ color: "red" }} />,
+          });
+      }
     }
   };
 
