@@ -46,7 +46,7 @@
   }
   
   .word-genify{
-      color: #9173e6;
+      color: #B9A0FF;
   }
 
   @media (max-width: 576px) {
@@ -84,6 +84,20 @@
       width: 80%;
     }
   }
+
+  /* SignUp.css */
+
+.sign-up-phrase{
+  background-color: #24605A;
+}
+
+.sign-up-phrase-mini{
+  color: #C3FFB2;
+}
+
+.link-text{
+  color: #B9A0FF;
+}
 
 
   /* Footer.css */
