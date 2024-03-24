@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import '../../AMain/Main.css';
 
 const Footer: FC<{marginTop?:boolean , bottomFooter?:boolean}>=({marginTop,bottomFooter}) => {
-  const footerStyle = bottomFooter ? {marginTop:"19rem"} : { marginTop: marginTop ? "" : "6rem" };
+  const footerStyle = bottomFooter ? {marginTop:"6rem"} : { marginTop: marginTop ? "" : "6rem" };
   return (
     <footer className="py-5 text-center w-full footer custom-footer" style={footerStyle}>
       <div className="container mx-auto">
