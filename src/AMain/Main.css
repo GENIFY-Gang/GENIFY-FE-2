@@ -195,21 +195,21 @@
 
 /* Navigation.css */
 
-.navbar{
+.navbar {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 1rem;
+  padding-block: 1.5rem;
   width: 100%;
   font-size: 1rem;
-  z-index: 1000; 
+  z-index: 1;
   background-color: white;
   font-family: 'Poppins', sans-serif;
 }
 
-.navbar-left{
+.navbar-left {
   width: 50%;
   text-align: left;
   margin-left: 4rem;
@@ -217,22 +217,45 @@
   font-weight: 600;
 }
 
-.navbar-right{
+.navbar-right {
   display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin-right: 2rem;  
+  align-items: center; /* Align items vertically */
+}
+
+.nav-link {
+  margin-right: 5rem; /* Add margin between each nav link */
+}
+
+.nav-link:last-child {
+  margin-right: 1rem; /* Reduce margin for the last nav link */
 }
 
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus { 
-  color:#39cc76;
+.nav-link:focus {
+  color: #39cc76;
 }
 
 .nav-link.active {
-  color: #39cc76; 
+  color: #39cc76;
 }
+
+/* Media Query for smaller screen sizes */
+@media screen and (max-width: 768px) {
+  .navbar-left {
+    margin-left: 1rem; /* Adjust margin for smaller screens */
+  }
+
+  .navbar-right {
+    margin-right: 1rem; /* Adjust margin for smaller screens */
+  }
+
+  .nav-link {
+    margin-right: 1rem; /* Adjust margin for smaller screens */
+  }
+}
+
+
 
 
 
@@ -317,6 +340,39 @@
     height: 300px;
   }
 }
+
+
+/* NotFound.css */
+
+
+.Error-page {
+  text-align: center; 
+  margin-top: 50px; 
+}
+
+.Error-page h1 {
+  font-size: 2rem; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+.Error-page img {
+  display: block;
+  margin: 0 auto; 
+  max-width: 200px; 
+  height: auto; 
+}
+
+.Error-page p {
+  font-size: 1rem;
+  color: #555; 
+  margin-top: 20px; 
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+
+
 
 
 

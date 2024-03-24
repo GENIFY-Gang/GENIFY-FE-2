@@ -19,8 +19,8 @@ const Login = () => {
       console.log(response, "res");
       const dataString = JSON.stringify(response);
       notification.success({
-        message: `Successfull`,
-        description: 'Login Successful',
+        message: `Successfully Logged into Genify`,
+        description: "Welcome back to your Genify AI Prompt Generator!",
         placement:"bottomRight",
       });
       setShowModal(true);
