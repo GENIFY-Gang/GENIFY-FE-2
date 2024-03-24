@@ -167,11 +167,11 @@ const Documentation = () => {
             modules={module}
             value={value}
             onChange={setValue}
-            style={{ height: "600px",marginTop:"10px"}}
+            style={{ height: "500px",marginTop:"10px"}}
           />
         </div>
       </Content>
-      <Footer marginTop={true} />
+      <Footer />
     </Layout>
   );
 };
