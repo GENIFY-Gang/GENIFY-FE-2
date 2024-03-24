@@ -278,7 +278,7 @@
     margin-top: 2rem;
     height: 98vh;
     background-color: #24605A;
-    z-index: 999;
+   
     padding-block: 4rem;
     transition: right 0.5s ease-in-out;
     
@@ -295,6 +295,7 @@
 
   .navbar-mobile.open{
     right: -10rem;
+    z-index: 100;
   }
 
   
@@ -305,13 +306,14 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black color */
-    z-index: 1; /* Ensure the overlay is on top of other content *//* Initially hide the overlay */
+     /* Ensure the overlay is on top of other content *//* Initially hide the overlay */
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
   }
 
   .overlay.show{
     opacity: 1;
+    z-index: 50;
   }
   
   .close-icon{
